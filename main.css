@@ -1,0 +1,796 @@
+/* Общие стили */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Важно для адаптивности */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wapper {
+    background: linear-gradient(180deg, rgba(7, 7, 7, 1) 51%, rgba(144, 26, 199, 1) 100%);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%; /* Адаптивный контейнер */
+    margin: 0 auto;
+    max-width: 1400px; /* Ограничение максимальной ширины */
+}
+
+header {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /*  */
+}
+
+header .Logo {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* === Меню === */
+
+.menu-container {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Или left: 20px; для левого угла */
+    z-index: 10;
+}
+
+.menu-button {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    text-align: left;
+    z-index: 10;
+}
+
+.menu-dropdown a {
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #555;
+}
+
+.menu-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.menu-dropdown a:hover {
+    background-color: #555;
+}
+
+.menu-dropdown a i {
+    margin-right: 8px;
+    width: 1.2em;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Класс для отображения/скрытия (JS) */
+.show {
+    display: block !important;
+}
+
+/* Адаптация для мобильных устройств (уже должна быть в вашем файле, проверьте и скорректируйте) */
+@media (max-width: 768px) {
+    .menu-container {
+        top: 10px; /* Меньший отступ сверху на мобильных */
+        right: 10px; /* Меньший отступ справа на мобильных */
+        /* Для левого угла
+        left: 10px; !* Меньший отступ слева на мобильных *!*/
+    }
+
+    .menu-button {
+        font-size: 24px; /* Размер иконки на мобильных */
+    }
+
+    .menu-dropdown {
+        right: 0; /* Растягиваем на всю ширину экрана */
+
+    }
+
+    .menu-dropdown a {
+        padding: 12px;
+        text-align: left; /* Выравнивание текста меню по левому краю */
+    }
+}
+
+/* Шапка */
+header {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .Logo,
+footer .block .logo {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+header nav {
+    width: auto; /* Убираем фиксированную ширину */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Выравниваем по правому краю */
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav Li a {
+    color: #fff;
+    display: block; /* Чтобы ссылки занимали всю область li */
+    padding: 5px 0;
+}
+
+header nav ul Li.active::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #901AC7;
+    border-radius: 10px;
+    position: relative;
+    top: 5px;
+    left: 0;
+}
+
+header nav Li:not(.active):not(.btn) a:hover {
+    border-bottom: 3px solid #901AC7;
+}
+
+header nav ul Li.btn a,
+.email .block button {
+    background: #901AC7;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: #fff;
+    display: inline-block;
+}
+
+header nav ul Li.btn a:hover,
+.email .block button:hover {
+    background: #5A0E7D;
+}
+
+
+/* Hero Section */
+.hero {
+    padding-bottom: 50px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero--info {
+    width: 100%;
+    padding-top: 50px;
+}
+
+.hero--info h2 {
+    color: #901AC7;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.hero--info h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-about .info .btn {
+    background: linear-gradient(90deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 24px;
+    border: 0;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.hero-about .info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.hero img {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 30px;
+}
+
+/* Trending Section */
+.trending {
+    padding-top: 30px;
+}
+
+.trending h3 {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+.trending .see-all:hover,
+.projects .see-all:hover {
+    transform: scale(1.05)
+}
+
+.trending .games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.trending .games > * {
+    width: 45%;
+    margin: 10px;
+}
+
+.trending .games span {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.trending .games span img {
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+
+/* Big Text Section */
+.big-text {
+    padding: 30px 0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Banner Section */
+.banner {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.banner h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+
+/* Projects Section */
+.projects {
+    padding: 50px 0;
+}
+
+.projects h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.projects p {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.projects image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+
+}
+
+/* Email Section */
+.email {
+    padding-bottom: 60px;
+}
+
+.email h3 {
+    margin-top: 30px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.email .block {
+    background: #1C140F;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 20px 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email .block h4 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.email .block p {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.email .block input {
+    background: #fff;
+    outline: none;
+    border: 0;
+    border-radius: 10px;
+    width: 90%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.email .block input::placeholder {
+    color: #898989;
+}
+
+.email .block button {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+/* About Page */
+.hero-about .info {
+    position: relative;
+    text-align: center;
+}
+
+.hero-about .info {
+    width: 90%;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+.hero-about .info h1 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #901AC7;
+}
+
+.hero-about .info p {
+    font-size: 32px;
+    font-weight: 600;
+    padding: 15px;
+}
+
+.hero-about .info .btn {
+    margin-top: 20px;
+}
+
+.hero-about img {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 30px;
+}
+
+/* Work Section */
+.work {
+    padding: 40px 0;
+}
+
+.work h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.work .blocks {
+    display: flex;
+    flex-direction: column;
+}
+
+.work .blocks .block {
+    width: 90%;
+    margin: 0 auto 20px;
+    border-radius: 25px;
+    padding: 20px;
+    background: #1C140F;
+}
+
+.work .blocks .block p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.work .blocks .block .badge {
+    border-radius: 7px;
+    padding: 8px 16px;
+}
+
+/* Portfolio Page */
+.hero-portfolio h1 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.hero-portfolio p {
+    text-align: center;
+}
+
+.hero-portfolio img {
+    margin: 40px auto;
+    width: 80%;
+}
+
+.void .blocks {
+    display: flex;
+    flex-direction: column;
+}
+
+.void .blocks .block {
+    width: 90%;
+    margin: 0 auto 20px;
+    border-radius: 25px;
+    padding: 20px;
+    background: #33033f;
+}
+
+.void .blocks .block h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.void .blocks .block p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.void img {
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 25px;
+}
+
+/* blockse */
+.void .blockse {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.void .blockse .block {
+    width: 90%;
+    margin: 0 auto 20px;
+    border-radius: 25px;
+    padding: 15px;
+    background: #5a0e6d;
+}
+
+.void .blockse .block h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.void .blockse .block p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+/* blocksa */
+.void .blocksa {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.void .blocksa .block {
+    width: 90%;
+    margin: 0 auto 20px;
+    border-radius: 25px;
+    padding: 15px;
+    background: #7f1599;
+}
+
+.void .blocksa .block h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.void .blocksa .block p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+/* Video Section */
+.video .text h3 {
+    font-size: 28px;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.video button {
+    padding: 15px 30px;
+    margin: 40px auto;
+    display: block;
+}
+
+/* Contact Page */
+.contact h1 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.contact p {
+    text-align: center;
+}
+
+.contact img {
+    margin: 40px auto;
+    width: 80%;
+}
+
+.contact .img img {
+    margin: 40px auto;
+    width: 80%;
+}
+
+.videou {
+    background: #1C140F;
+    padding: 30px 0;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.videou h3 {
+    font-size: 24px;
+    padding: 15px;
+}
+
+.videou button {
+    margin: 30px auto;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    padding: 30px 0;
+}
+
+footer .block {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .blocks p {
+    width: 90%;
+    margin: 10px 0;
+}
+
+footer .blocks h4 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+footer .blocks ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .blocks ul li {
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+footer hr {
+    margin: 20px 0;
+    border: 0;
+    height: 0.6px;
+    background: #4b4a4a;
+}
+
+footer > p {
+    text-align: center;
+}
+
+/*Медиа-запросы для адаптации под разные экраны*/
+
+/*Для экранов меньше 768px (большинство телефонов)*/
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    header .Logo {
+        font-size: 24px;
+    }
+
+    header nav {
+        display: none; /* Скрываем навигацию по умолчанию */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(7, 7, 7, 0.9);
+        padding: 20px;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header nav ul Li.active::after {
+        display: none; /* Убираем индикатор активной ссылки */
+    }
+
+    /* Добавляем кнопку для открытия меню */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    .hero--info h1 {
+        font-size: 36px;
+    }
+
+    .big-text {
+        font-size: 28px;
+    }
+
+    .email .block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .email .block h4,
+    .email .block p {
+        width: 100%;
+    }
+
+    .email .block input {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .email .block button {
+        width: auto;
+    }
+
+    .work .blocks {
+        flex-direction: column;
+    }
+
+    .work .blocks .block {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer .block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .blocks p {
+        width: 100%;
+    }
+}
+
+/* Для экранов от 768px до 992px (планшеты) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+
+    .hero--info h1 {
+        font-size: 42px;
+    }
+
+    .big-text {
+        font-size: 32px;
+    }
+
+    .email .block {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .email .block h4,
+    .email .block p {
+        width: 50%;
+    }
+
+    .email .block input {
+        width: 50%;
+        margin-bottom: 0;
+    }
+}
+
